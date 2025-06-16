@@ -23,7 +23,7 @@ export default function MainContext({children}) {
     axios.get(`https://wscubetech.co/ecommerce-api/products.php`,{
         params:{
             page: pagenumberFilterState,
-            limit: "", // एक पेज पर 12 प्रोडक्ट्स
+            limit: 12, // एक पेज पर 12 प्रोडक्ट्स
             categories: categoryFilterState,
             brands: brandFilterState,
             price_from: startprice_from, 
@@ -36,7 +36,8 @@ export default function MainContext({children}) {
     })
     .then((res)=>res.data)
     .then((finalRes)=>{
-        setTotalPage(finalRes.toal_pages)
+        setTotalPage(finalRes.total_pages
+        )
         setProduct(finalRes.data)
         setLoader(false)
         window.scrollTo({
