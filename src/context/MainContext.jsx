@@ -15,17 +15,19 @@ export default function MainContext({children}) {
     let [sortFilterState, setSortFilterState] = useState(null) // सॉर्टिंग फिल्टर
     let [rateFilterState, setRateFilterState] = useState(null) // रेटिंग फिल्टर
     let [pagenumberFilterState, setPagenumberFilterState] = useState(1) // पेज नंबर
+    let [startprice_from, setstartprice_from] = useState("") // price start
+    let [maximumprice, setmaximumprice] = useState("") // maximumprice start
 
   let getProduct=()=>{
     setLoader(true)
     axios.get(`https://wscubetech.co/ecommerce-api/products.php`,{
         params:{
             page: pagenumberFilterState,
-            limit: 12, // एक पेज पर 12 प्रोडक्ट्स
+            limit: "", // एक पेज पर 12 प्रोडक्ट्स
             categories: categoryFilterState,
             brands: brandFilterState,
-            price_from:'', 
-            price_to: '',
+            price_from: startprice_from, 
+            price_to: maximumprice,
             discount_from:'', 
             discount_to: '',
             rating: rateFilterState,
@@ -67,9 +69,9 @@ export default function MainContext({children}) {
 
   useEffect(()=>{
     getProduct();
-  },[categoryFilterState,brandFilterState,sortFilterState,rateFilterState,pagenumberFilterState])
+  },[categoryFilterState,brandFilterState,sortFilterState,rateFilterState,pagenumberFilterState,startprice_from])
 
-  let obj={loader,product,category,brand,categoryFilterState,setCategoryFilterState,brandFilterState,setBrandFilterState,setSortFilterState,totalPage,setPagenumberFilterState,pagenumberFilterState}
+  let obj={loader,product,category,brand,categoryFilterState,setCategoryFilterState,brandFilterState,setBrandFilterState,setSortFilterState,totalPage,setPagenumberFilterState,pagenumberFilterState,rateFilterState, setRateFilterState,startprice_from, setstartprice_from,maximumprice, setmaximumprice,maximumprice}
   return (
     <ProductConext.Provider value={obj}>
         {children}

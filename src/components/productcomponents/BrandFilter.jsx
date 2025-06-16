@@ -28,7 +28,7 @@ export default function BrandFilter() {
                 {brand.length>=1 ?
                       brand.map((brandItems,index)=>{
                           return(
-                              <li key={index} className="block px-2 py-3">
+                              <li key={index} className="block px-2 py-0">
                                 <input onChange={getCheckValue} type="checkbox" value={brandItems.slug} className='mr-3' />  
                                   {brandItems.name}
                                  

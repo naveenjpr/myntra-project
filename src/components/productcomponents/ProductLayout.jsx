@@ -43,7 +43,7 @@ export default function ProductLayout() {
 
 function ProductItems({productData}){
 
-  let {name,image,category_name,price}=productData
+  let {name,image,category_name,price,rating,discount_percentage}=productData
 
   return(
     <div class="border-2 border-gray-300 border-solid ">
@@ -56,7 +56,10 @@ function ProductItems({productData}){
         </p>
         <div class="flex justify-between">
           <p> price: {price}</p>
-          <span> Rating:3</span>
+          <span> Rating:{rating}</span>
+        </div>
+        <div class="flex justify-between">
+          <p> discount: {discount_percentage}%</p>
         </div>
       </div>
       <div class="flex justify-center pb-2"><button class="  border-2 border-[gray] rounded-md p-2 flex hover:bg-slate-200" fdprocessedid="nzllhd">Add to cart</button></div>
