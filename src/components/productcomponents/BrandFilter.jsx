@@ -24,7 +24,7 @@ export default function BrandFilter() {
       <div>
          <div className="mt-4 border-t border-gray-200 p-3 border-2 mb-4 h-[300px] overflow-y-scroll">
              <h3 className='font-medium text-gray-900'>brands</h3>
-              <ul role="list" className="px-2 py-3 font-medium text-gray-900">
+              <ul role="list" className="px-2 py-3 font-medium text-[13px] text-gray-900">
                 {brand.length>=1 ?
                       brand.map((brandItems,index)=>{
                           return(

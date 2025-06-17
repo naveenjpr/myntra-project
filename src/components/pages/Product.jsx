@@ -35,7 +35,7 @@ export default function Product() {
                     </div>
                 </div>
             </section>
-            <div className='grid grid-cols-[20%_auto] gap-8'>
+            <div className='grid grid-cols-[18%_auto] gap-8'>
                 <SideBarFilter />
                 <ProductLayout />
             </div>

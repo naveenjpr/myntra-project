@@ -1,45 +1,50 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductConext } from "../../context/MainContext";
+import { FaStar } from "react-icons/fa";
 
 export default function RatingFilter() {
-    let { setRateFilterState } = useContext(ProductConext);
-
-  let [allCheckCat, setAllCheckCat] = useState([]);
-  let ratingList = [1, 2, 3, 4, 5];
-
-  // ✅ Checkbox logic
-  let getCheckValue = (event) => {
-    if (event.target.checked) {
-      setAllCheckCat([...allCheckCat, event.target.value]);
-    } else {
-      let filterData = allCheckCat.filter(
-        (items) => items !== event.target.value
-      );
-      setAllCheckCat(filterData);
-    }
-  };
+  let { setRateFilterState } = useContext(ProductConext);
 
   // ✅ Update rating filter in context
-  useEffect(() => {
-    setRateFilterState(allCheckCat.join(","));
-  }, [allCheckCat]);
 
   return (
     <div>
-      <div className="mt-4 border-t border-gray-200 p-3 border-2 mb-4 h-[300px] overflow-y-scroll">
-        <h3 className="font-medium text-gray-900">RatingFilter</h3>
-        <ul>
-          {ratingList.map((rating, index) => (
-            <li key={index}>
-              <input
-                type="checkbox"
-                value={rating}
-                onChange={getCheckValue}
-                className="mr-3"
-              />
-              {rating} Stars & up
-            </li>
-          ))}
+      <div className="mt-4 border-t border-gray-200 p-3 border-2 mb-4 h-[120px] overflow-auto">
+        <h3 className="font-medium text-gray-900">Rating</h3>
+        <ul className="text-[13px]">
+          <li className="flex items-center">
+            <input
+              type="radio"
+              name="rating"
+              onChange={() => setRateFilterState(4)}
+              className="mr-3"
+            />
+            <span className=" flex items-center">
+              <FaStar /> &nbsp;4 & above
+            </span>
+          </li>
+          <li className="flex items-center">
+            <input
+              type="radio"
+              name="rating"
+              onChange={() => setRateFilterState(3)}
+              className="mr-3"
+            />
+            <span className=" flex items-center">
+              <FaStar /> &nbsp;3 & above
+            </span>
+          </li>
+          <li className="flex items-center">
+            <input
+              type="radio"
+              name="rating"
+              onChange={() => setRateFilterState(2)}
+              className="mr-3"
+            />
+            <span className=" flex items-center">
+              <FaStar /> &nbsp;2 & above
+            </span>
+          </li>
         </ul>
       </div>
     </div>

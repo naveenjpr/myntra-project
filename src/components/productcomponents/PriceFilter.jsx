@@ -10,11 +10,11 @@ export default function PriceFilter() {
   };
   return (
     <div>
-      <div className="mt-4 border-t border-gray-200 p-3 border-2 mb-4 h-[300px] overflow-y-scroll">
+      <div className="mt-4 border-t border-gray-200 p-3 border-2 mb-4 h-[200px] overflow-auto">
         <h3 className="font-medium text-gray-900">PriceFilter</h3>
         <ul
           role="list"
-          className="px-2 py-0 font-medium text-gray-900 space-y-2"
+          className="px-2 py-0 font-medium text-gray-900 space-y-2 text-[13px]"
         >
           <li className="flex items-center">
             <input
